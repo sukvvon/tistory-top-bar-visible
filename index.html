@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/lib/lightbox/css/lightbox.min.css" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/content/font.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/content/content.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80" /><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js"></script><!--<![endif]-->
+<script src="https://t1.daumcdn.net/tistory_admin/lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="https://tistory3.daumcdn.net/tistory/4189167/8a88a8d762124cec86d2c68611163114" /><link rel="apple-touch-icon" href="//img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ftistory3.daumcdn.net%2Ftistory%2F4189167%2Fattach%2F4471cc7218f34231bd498aeed3b7ac45">
+<link rel="apple-touch-icon" sizes="76x76" href="//img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ftistory3.daumcdn.net%2Ftistory%2F4189167%2Fattach%2F4471cc7218f34231bd498aeed3b7ac45">
+<link rel="apple-touch-icon" sizes="120x120" href="//img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ftistory3.daumcdn.net%2Ftistory%2F4189167%2Fattach%2F4471cc7218f34231bd498aeed3b7ac45">
+<link rel="apple-touch-icon" sizes="152x152" href="//img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ftistory3.daumcdn.net%2Ftistory%2F4189167%2Fattach%2F4471cc7218f34231bd498aeed3b7ac45">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="description" content="이 TisTory(#1) 간단하게 로딩 창 구현하기 포스팅은 Tistory(#1) theme toggle 구현하기를 일부 공유합니다. html html 코드는 크게 3개의 요소로 이루어집니다. #loading → loading 화면 전체 #loading-circle..">
+
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://sukvvon.tistory.com/77" /><meta property="og:type" content="article"><meta property="og:url" content="https://sukvvon.tistory.com/77" ><meta property="og:article:author" content="sukvvon" ><meta property="og:site_name" content="꿈을 현실로" ><meta property="og:title" content="Tistory(#1) 간단하게 로딩 창 구현하기" ><meta name="by" content="sukvvon" ><meta property="og:description" content="이 TisTory(#1) 간단하게 로딩 창 구현하기 포스팅은 Tistory(#1) theme toggle 구현하기를 일부 공유합니다. html html 코드는 크게 3개의 요소로 이루어집니다. #loading → loading 화면 전체 #loading-circle.." ><meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FevFK0v%2FbtrunOEyoVR%2FsmFSMseAtRJADRVMmj06t1%2Fimg.gif" ><meta property="article:section" content="IT 인터넷" >
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="Tistory(#1) 간단하게 로딩 창 구현하기" ><meta name="twitter:description" content="이 TisTory(#1) 간단하게 로딩 창 구현하기 포스팅은 Tistory(#1) theme toggle 구현하기를 일부 공유합니다. html html 코드는 크게 3개의 요소로 이루어집니다. #loading → loading 화면 전체 #loading-circle.." ><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FevFK0v%2FbtrunOEyoVR%2FsmFSMseAtRJADRVMmj06t1%2Fimg.gif" >
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://sukvvon.tistory.com/77" ><meta name="plink" content="https://sukvvon.tistory.com/77" ><meta name="title" content="Tistory(#1) 간단하게 로딩 창 구현하기" ><meta name="article:media_name" content="꿈을 현실로" ><meta property="article:mobile_url" content="https://sukvvon.tistory.com/m/77" ><meta property="article:pc_url" content="https://sukvvon.tistory.com/77" ><meta property="article:mobile_view_url" content="https://sukvvon.tistory.com/m/77" ><meta property="article:pc_view_url" content="https://sukvvon.tistory.com/77" ><meta property="article:talk_channel_view_url" content="https://sukvvon.tistory.com/m/77" ><meta property="article:pc_service_home" content="https://www.tistory.com" ><meta property="article:mobile_service_home" content="https://www.tistory.com/m" ><meta property="article:txid" content="4189167_77" /><meta property="article:published_time" content="2022-02-26T21:44:24+09:00" ><meta property="og:regDate" content="20220226214424" ><meta property="article:modified_time" content="2022-03-08T17:39:16+09:00" >
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/sukvvon.tistory.com\/77"},"url":"https:\/\/sukvvon.tistory.com\/77","headline":"Tistory(#1) \uac04\ub2e8\ud558\uac8c \ub85c\ub529 \ucc3d \uad6c\ud604\ud558\uae30","description":"\uc774 TisTory(#1) \uac04\ub2e8\ud558\uac8c \ub85c\ub529 \ucc3d \uad6c\ud604\ud558\uae30 \ud3ec\uc2a4\ud305\uc740 Tistory(#1) theme toggle \uad6c\ud604\ud558\uae30\ub97c \uc77c\ubd80 \uacf5\uc720\ud569\ub2c8\ub2e4. html html \ucf54\ub4dc\ub294 \ud06c\uac8c 3\uac1c\uc758 \uc694\uc18c\ub85c \uc774\ub8e8\uc5b4\uc9d1\ub2c8\ub2e4. #loading \u2192 loading \ud654\uba74 \uc804\uccb4 #loading-circle..","author":{"@type":"Person","name":"sukvvon"},"image":{"@type":"ImageObject","url":"https:\/\/img1.daumcdn.net\/thumb\/R800x0\/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FevFK0v%2FbtrunOEyoVR%2FsmFSMseAtRJADRVMmj06t1%2Fimg.gif","width":"800px","height":"800px"},"datePublished":"20220226T21:44:24+09:00","dateModified":"20220308T17:39:16+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script><meta name="robots" content="max-image-preview:large">
+<!-- END STRUCTURED_DATA -->
+
+
+	<meta charset="UTF-8">
+	<meta name="naver-site-verification" content="18eed0b52e1f27d74735c58f9176578556ea4630" /> 
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>Tistory(#1) 간단하게 로딩 창 구현하기</title>
+	<link rel="alternate" type="application/rss+xml" title="꿈을 현실로" href="https://sukvvon.tistory.com/rss" />
+	
+	<!-- github-markdown-css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" />
+	<!-- github-markdown-css -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/material.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/style.css?_T_=1646806245">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/font.css">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/toc.css">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/loading.css">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/theme-toggle.css">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/themes.css">
+	<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/4189167/skin/images/icons.css">
+	
+
+
+	<!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js"></script>
+	<!--<![endif]-->
+<!-- BEGIN GOOGLE_SITE_VERIFICATION -->
+<meta name="google-site-verification" content="BPv7HNTPcb9kZvpyKKgYU-xJaIRVa6OgMpJLRCAYB40" />
+<!-- END GOOGLE_SITE_VERIFICATION -->
+<style type="text/css">
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/plugins/TistoryProfileLayer/style.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80" />
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/plugins/TistoryProfileLayer/profile.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"></script>
+	<style type="text/css">
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script type="text/javascript">
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://sukvvon.tistory.com",
+            tistoryUrl: "https://sukvvon.tistory.com",
+			manageUrl: 'https://sukvvon.tistory.com/manage',
+            token: 'r8yFVhoiIUfI7wjMiGEc1Q=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script type="text/javascript" defer src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80></script>
+    <script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+        <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/_/base.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"></script>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/dialog.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"/>
+            <link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css">
+    <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/postBtn.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"/>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/component/tistory.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80" />
+        <script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/style/revenue.css?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"/></head>
+
+<body id="tt-body-page">
+	<script src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/theme.js"></script>
+	<!--loading-->
+	<div id="loading">
+		<div id="loading-circle">
+			<div id="loading-empty"></div>
+		</div>
+	</div>
+	<!--loading-->
+<script type="text/javascript">
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"owner","PREV_PAGE":"\/78","NEXT_PAGE":"\/76","BLOG":{"isDormancy":false,"title":"\uafc8\uc744 \ud604\uc2e4\ub85c"},"NEED_COMMENT_LOGIN":true,"COMMENT_LOGIN_CONFIRM_MESSAGE":"\uc774 \ube14\ub85c\uadf8\ub294 \ub85c\uadf8\uc778\ud55c \uc0ac\uc6a9\uc790\uc5d0\uac8c\ub9cc \ub313\uae00 \uc791\uc131\uc744 \ud5c8\uc6a9\ud588\uc2b5\ub2c8\ub2e4. \uc9c0\uae08 \ub85c\uadf8\uc778\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Fsukvvon.tistory.com%2F77","DEFAULT_URL":"https:\/\/sukvvon.tistory.com","USER":{"name":"sukvvon","homepage":"https:\/\/sukvvon.tistory.com"},"ROLE_GROUP":"member","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":true,"HAS_BLOG":true,"TOP_URL":"https:\/\/www.tistory.com","JOIN_URL":"https:\/\/www.tistory.com\/member\/join"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+                    initData.user = {"id":"4538535","loginId":"wonsuk1105@naver.com","name":"sukvvon"};
+        
+	})();
+</script>
+
+	<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/owner.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"></script>
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/blog/common.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+	<div id="dkIndex">
+		<a href="#dkBody">본문 바로가기</a>
+		<a href="#dkGnb">메뉴 바로가기</a>
+	</div>
+
+	<div id="dkWrap" class="wrap_skin ">
+		<div id="dkHead" role="banner" class="area_head ">
+			<h1 class="screen_out">꿈을 현실로</h1>
+			<div class="area_profile ">
+				<a class="link_profile" href="/"><img src="https://tistory1.daumcdn.net/tistory/4189167/attach/4471cc7218f34231bd498aeed3b7ac45" width="50" height="50" class="img_profile" alt="프로필사진"></a>
+				<div class="info_profile">
+					<button type="button" class="btn_name">sukvvon
+						<span class="ico_name">•••</span>
+					</button>
+					<ul class="list_name">
+						<li><a href="https://sukvvon.tistory.com/manage/entry/post" class="link_name">글쓰기</a></li>
+						<li><a href="https://sukvvon.tistory.com/manage" class="link_name">관리</a></li>
+						<li class="box_division"><a href="/tag" class="link_name">태그</a></li>
+						<li><a href="/guestbook" class="link_name">방명록</a></li>
+						<li><a href="https://sukvvon.tistory.com/rss" class="link_name">RSS</a></li>
+					</ul>
+					<p class="txt_condition">꿈을 현실로</p>
+				</div>
+			</div>
+
+			<button type="button" class="btn_menu">
+				<span class="drawer">
+					<span class="drawer__box">
+						<span class="drawer__box__line"></span>
+						<span class="drawer__box__line"></span>
+						<span class="drawer__box__line"></span>
+					</span>
+				</span>
+				<!--
+				<span class="ico_skin ico_menu">카테고리 메뉴열기</span>
+				-->
+			</button>
+		</div>
+
+		<div class="dimmed_layer"></div>
+
+		<button type="button" class="btn_close">
+			<span class="ico_skin ico_close">닫기</span>
+		</button>
+
+		<div class="area_menu">
+			<!--toggle button-->
+      <label class="switch-button"> 
+        <input class="check" type="checkbox"/> 
+        <span class="onoff-switch"></span> 
+      </label>
+      <!--toggle button-->
+			
+			
+				<div class="area_search">
+					<button type="button" class="btn_search">
+						<!--<span class="ico_skin ico_search">검색하기</span>-->
+						<!--reading-glasses-->
+						<span class="reading-glasses">
+							<span class="reading-glasses__circle"></span>
+							<span class="reading-glasses__line"></span>
+						</span>
+						<!--reading-glasses-->
+					</button>
+					<form action="#" method="get" class="frm_search" onsubmit="try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('search')[0].value);document.getElementsByName('search')[0].value='';return false;}catch(e){}">
+						<fieldset>
+							<legend class="screen_out">검색하기 폼</legend>
+							<!--<label for="tfSearch" class="ico_skin lab_search">검색하기</label>-->
+							<label for="tfSearch" class="lab_search">
+								<div class="reading-glasses">
+									<span class="reading-glasses__circle"></span>
+									<span class="reading-glasses__line"></span>
+								</div>
+							</label>
+							<input type="text" name="search" value="" class="tf_search">
+						</fieldset>
+					</form>
+				</div>
+			
+
+			<div role="navigation" class="area_navi">
+				<button type="button" class="btn_cate">Category <span class="ico_cate">•••</span></button>
+
+				<div class="list_cate">
+					<ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="/category">
+			분류 전체보기							<span class="c_cnt">(32)</span>
+			
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="/category/macOS">
+						macOS													<span class="c_cnt">(9)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Homebrew">
+						Homebrew													<span class="c_cnt">(5)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Git">
+						Git													<span class="c_cnt">(7)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Vim">
+						Vim													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/CS">
+						CS													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/CSS">
+						CSS													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/JavaScript">
+						JavaScript													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Nodejs">
+						Nodejs													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/React">
+						React													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Etc">
+						Etc													<span class="c_cnt">(3)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Project">
+						Project													<span class="c_cnt">(0)</span>
+						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+
+					<ul class="menu_profile">
+						<li><a href="/guestbook">방명록</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr class="hide">
+
+		
+
+		<div id="dkContent" class="cont_skin" role="main">
+			<div id="cMain">
+					<div id="toc-elements"></div>
+				
+
+				
+
+				
+
+				
+					<div id="mArticle" class="article_skin">
+
+						
+
+						
+							<div class="skin_view">
+								<h2 id="dkBody" class="screen_out">티스토리 뷰</h2>
+								<div class="area_title">
+									<strong class="tit_category"><a href="/category/CSS">CSS</a></strong>
+									<h3 class="tit_post"><a href="/77">Tistory(#1) 간단하게 로딩 창 구현하기</a></h3>
+									<span class="txt_detail my_post">sukvvon
+										<span class="txt_bar"></span>2022. 2. 26. 21:44
+										
+											<span class="my_edit">
+												<span class="txt_bar"></span><a href="https://sukvvon.tistory.com/manage/post/77?returnURL=https://sukvvon.tistory.com/77" class="link_detail">수정</a>
+												<span class="txt_bar"></span><a href="#" onclick="changeVisibility(77, 0); return false;" class="link_detail">공개</a>
+												<span class="txt_bar"></span><a href="#" onclick="deleteEntry(77); return false;" class="link_detail">삭제</a>
+											</span>
+										
+									</span>
+								</div>
+								<div class="area_view">
+									<div class="tt_article_useless_p_margin contents_style"><p align="center">
+  <img src="https://user-images.githubusercontent.com/66409882/155837498-0e2c2cee-5d15-47d5-86c3-127f55d7cec2.gif" />
+</p>
+
+<blockquote>
+<p>이 TisTory(#1) 간단하게 로딩 창 구현하기 포스팅은 <a href="https://sukvvon.tistory.com/76">Tistory(#1) theme toggle 구현하기</a>를 일부 공유합니다.</p>
+</blockquote>
+<h2>html</h2>
+<pre><code class="language-html">&lt;!--loading--&gt;
+&lt;div id=&quot;loading&quot;&gt;
+  &lt;div id=&quot;loading-circle&quot;&gt;
+    &lt;div id=&quot;loading-empty&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--loading--&gt;</code></pre>
+<p>html 코드는 크게 3개의 요소로 이루어집니다.</p>
+<ol>
+<li><em>#loading</em> → loading 화면 전체</li>
+<li><em>#loading-circle</em> → loading을 의미하는 원</li>
+<li><em>#loading-empty</em> → #loading-circle에서 원의 미완성 부분</li>
+</ol>
+<h2>loading.css</h2>
+<pre><code class="language-css">#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 32;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color-body);
+  animation: hideLoadingScreen 0.3s linear forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes hideLoadingScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#loading-circle {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid var(--color-a);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  animation: loadingCircle 1s ease-in-out infinite;
+}
+
+@keyframes loadingCircle {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-empty {
+  position: absolute;
+  background-color: var(--background-color-body);
+  width: 1rem;
+  height: 2rem;
+  top: -1rem;
+}</code></pre>
+<h3>#loading</h3>
+<pre><code class="language-css">#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 32;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color-body);
+  animation: hideLoadingScreen 0.3s linear forwards;
+  animation-delay: 0.7s;
+}</code></pre>
+<p><em>#loading</em>의 역활은 <strong>loading 전체화면</strong>입니다.</p>
+<h4>width, height</h4>
+<pre><code class="language-css">#loading {
+  width: 100vw;
+  height: 100vh;
+}</code></pre>
+<p>너비(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/width">width</a>)와 높이(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/height">height</a>)를 각각 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/length#vw">100vw</a> <a href="https://developer.mozilla.org/ko/docs/Web/CSS/length#vh">100vh</a>로 설정하여 <strong>화면 전체가 해당</strong>되게 합니다.</p>
+<h4>display</h4>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66409882/155838090-71aa8069-1547-4e66-9ee4-09d73170156d.png" />
+</p>
+
+<pre><code class="language-css">#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/display">display</a>를 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout">flexible</a>하게 만듭니다. 기본 축(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a>)과 교차 축(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a>) <code>center</code>로 해 <strong>자식 요소가 화면의 정중앙</strong>에 오도록 합니다.</p>
+<h4>z-index</h4>
+<pre><code class="language-css">#loading {
+  z-index: 32;
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/z-index">z-index</a> 속성을 32로 하여 현재 레이어 층이 32층이며 가장 <strong>최상위 층</strong>이라고 설정합니다. 최상위 층이라는 것은 곧 이 loading 창 위에 아무것도 없다는 것입니다.</p>
+<h4>position</h4>
+<pre><code class="language-css">#loading {
+  position: fixed;
+  top: 0;
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/position">position</a>을 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/position#fixed">fixed</a>로 하여 <strong>요소를 일반적인 흐름에서 제거하고, 공간 또한 배정하지 않게</strong> 한 후 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/top">top: 0</a>을 통해 <strong>전체 화면의 최상단에 위치</strong>하게 합니다.</p>
+<h4>animation</h4>
+<pre><code class="language-css">#loading {
+  animation: hideLoadingScreen 0.3s linear forwards;
+  animation-delay: 0.7s;
+}</code></pre>
+<p><code>hideLoadingScreen</code> 애니메이션을 0.3초(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-duration">animation-duration</a>)동안 실행하고 애니메이션 진행 방식(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a>)을 <code>linear</code> 즉 선형성 직선적으로 바르게 진행하도록 합니다. 그리고 <code>forwards</code> 속성을 줌으로(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a>) 애니메이션이 <strong>끝난 후에도 지속</strong>되게 합니다.</p>
+<p>또한 애니메이션 지연(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-delay">animation-delay</a>)을 0.7초로 하여 애니메이션이 0.7초 뒤에 실행하도록 합니다.</p>
+<h3>hideLoadingScreen animation</h3>
+<pre><code class="language-css">@keyframes hideLoadingScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/@keyframes">@keyframes</a> 규칙을 생성합니다. 애니메이션 이름(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">animation-name</a>)을 <code>hideLoadingScreen</code>으로 정합니다. <a href="https://developer.mozilla.org/ko/docs/Web/CSS/opacity">opacity</a>를 통해 불투명 정도를 <strong>완전히 없음(1)</strong> 에서 <strong>완전히 있음(0)</strong> 으로 합니다. 하지만 불투명할 뿐이지 존재하므로 요소의 보임(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/visibility">visibility</a>)을 <code>hidden</code>으로 <strong>숨김처리</strong> 하여 loading 창이 없는 효과를 줘 loading 창 밑 층에 있는 요소들을 제어 할 수 있게 합니다.</p>
+<h3>#loading-circle</h3>
+<pre><code class="language-css">#loading-circle {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid var(--color-a);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  animation: loadingCircle 1s ease-in-out infinite;
+}</code></pre>
+<p><em>#loading-circle</em> 원에 관한 요소입니다.</p>
+<h4>position</h4>
+<pre><code class="language-css">#loading-circle {
+  position: relative;</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/position">position</a>을 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/position#relative">relative</a>로 설정하여 <em>#loading-empty</em> 의 <strong>기준이 되는 조상</strong>은 <em>#loading-circle</em> 인 것이라고 지정합니다.</p>
+<h4>width, height</h4>
+<pre><code class="language-css">#loading-circle {
+  width: 2rem;
+  height: 2rem;
+}</code></pre>
+<p><code>width</code>와 <code>height</code>를 <a href="https://developer.mozilla.org/ko/docs/Learn/CSS/Building_blocks/Values_and_units#%EC%83%81%EB%8C%80_%EA%B8%B8%EC%9D%B4_%EB%8B%A8%EC%9C%84">2rem</a>으로 하여 <a href="https://developer.mozilla.org/ko/docs/Learn/CSS/Building_blocks/Values_and_units#%EC%A0%88%EB%8C%80_%EA%B8%B8%EC%9D%B4_%EB%8B%A8%EC%9C%84">px</a>과 같은 절대적인 길이가 아닌 상대적인 길이 설정을 통해 <strong>웹과 모바일을 모두 호환이 가능</strong>하게끔 합니다.</p>
+<h4>border</h4>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66409882/155838697-0a8a20ef-d47d-43ae-86f1-67982ba61213.png" />
+  <img src="https://user-images.githubusercontent.com/66409882/155838767-3a411691-58c6-4cbe-9e32-ff26e9c5e53c.png" />
+</p>
+
+<pre><code class="language-css">#loading-circle {
+  border: 0.3rem solid var(--color-a);
+  border-radius: 50%;
+}</code></pre>
+<p>마찬가지로 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/border">border</a>의 굵기 또한 상대적인 척도인 <a href="https://developer.mozilla.org/ko/docs/Learn/CSS/Building_blocks/Values_and_units#%EC%83%81%EB%8C%80_%EA%B8%B8%EC%9D%B4_%EB%8B%A8%EC%9C%84">rem</a>을 사용합니다. 색상은 <a href="https://sukvvon.tistory.com/76#h-tag-22">dataTheme.css</a>의 <code>--color-a</code>인 <code>#8b949e</code>와 <code>#57606a</code>를 사용합니다. 그리고 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/border-radius">border-radius</a>는 원이 되어야 하므로 <em>50%</em> 로 합니다.</p>
+<h4>display</h4>
+<pre><code class="language-css">#loading-circle {
+  display: flex;
+  justify-content: center;
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/display">display</a>는 <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout">flexible</a> 속성을 주고 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a>을 <code>center</code>로 설정해 자식 요소인 <em>#loading-empty</em> 가 <strong>중앙</strong>으로 오게 합니다.</p>
+<h4>animation</h4>
+<pre><code class="language-css">#loading-circle {
+  animation: loadingCircle 1s ease-in-out infinite;
+}</code></pre>
+<p><code>loadingCircle</code> 애니메이션을 1초(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-duration">animation-duration</a>)동안 실행하고 애니메이션 진행 방식(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a>)을 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function#ease-in-out">ease-in-out</a> 즉 <strong>시작과 끝의 속도를 천천히 진행하도록</strong> 합니다. 그리고 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count#infinite">infinite</a> 속성을 줌으로(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a>) 애니메이션이 끝나고도 계속 <strong>무한으로 반복</strong>되게 합니다.</p>
+<h3>loadingCircle animation</h3>
+<pre><code class="language-css">@keyframes loadingCircle {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/@keyframes">@keyframes</a> 규칙을 생성합니다. 애니메이션 이름(<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">animation-name</a>)을 <code>loadingCircle</code>로 정합니다. <a href="https://developer.mozilla.org/ko/docs/Web/CSS/transform">transform</a>을 <code>none</code>으로 설정하여 효과가 없는 상태에서 시작하여 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate()">rotate(360deg)</a> 즉 <strong>360도로 시계방향으로 회전</strong>하게 합니다.</p>
+<h3>#loading-empty</h3>
+<pre><code class="language-css">#loading-empty {
+  position: absolute;
+  background-color: var(--background-color-body);
+  width: 1rem;
+  height: 2rem;
+  top: -1rem;
+}</code></pre>
+<h4>width, height</h4>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66409882/155838634-c3f02790-9451-44c5-ab56-df850197f2b3.png" />
+</p>
+
+<pre><code class="language-css">#loading-empty {
+  width: 1rem;
+  height: 2rem;
+}</code></pre>
+<p>너비(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/width">width</a>)와 높이(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/height">height</a>)를 1rem, 2rem으로 여유롭게 설정하여 원 상단의 일부분을 가리게 합니다.</p>
+<h4>position</h4>
+<pre><code class="language-css">#loading-empty {
+  position: absolute;
+  top: -1rem;
+}</code></pre>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/CSS/position">position</a>을 <code>absolute</code>로 설정하여 가장 가까운 위치의 조상인 #loading-circle을 기준으로부터 <code>top: -1rem</code> 즉 <a href="https://developer.mozilla.org/ko/docs/Learn/CSS/Building_blocks/Values_and_units#%EC%83%81%EB%8C%80_%EA%B8%B8%EC%9D%B4_%EB%8B%A8%EC%9C%84">1rem</a>만큼 상단으로 위치가 이동합니다.</p>
+<h4>background-color</h4>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66409882/155838697-0a8a20ef-d47d-43ae-86f1-67982ba61213.png" />
+  <img src="https://user-images.githubusercontent.com/66409882/155838767-3a411691-58c6-4cbe-9e32-ff26e9c5e53c.png" />
+</p>
+
+<pre><code class="language-css">#loading-empty {
+  background-color: var(--background-color-body);
+}</code></pre>
+<p><code>background-color</code> 즉 배경색은 <a href="https://sukvvon.tistory.com/76#h-tag-5">themes.css</a>의 <code>--background-color-body</code>인 <code>#0d1117</code>과 <code>#57606a</code>를 사용합니다.</p>
+<div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+<script>
+    window.ReactionButtonType = 'reaction';
+    window.ReactionApiUrl = '//sukvvon.tistory.com/reaction';
+    window.ReactionReqBody = {
+        entryId: 77    }
+</script>
+<div class="wrap_btn" id=reaction-77></div>
+<script src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button type="button" class="btn_post sns_btn btn_share" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FevFK0v%2FbtrunOEyoVR%2FsmFSMseAtRJADRVMmj06t1%2Fimg.gif" data-title="Tistory(#1) 간단하게 로딩 창 구현하기" data-description="이 TisTory(#1) 간단하게 로딩 창 구현하기 포스팅은 Tistory(#1) theme toggle 구현하기를 일부 공유합니다. html html 코드는 크게 3개의 요소로 이루어집니다. #loading → loading 화면 전체 #loading-circle.." data-profile-image="https://tistory1.daumcdn.net/tistory/4189167/attach/4471cc7218f34231bd498aeed3b7ac45" data-profile-name="sukvvon" data-pc-url="https://sukvvon.tistory.com/77" data-relative-pc-url="/77" data-blog-title="꿈을 현실로">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+</div>
+        <div class="wrap_btn">
+    <button type="button" class="btn_post" data-entry-id="77">
+        <span class="ico_postbtn ico_statistics">통계</span>
+    </button>
+</div>
+        <div class="wrap_btn wrap_btn_etc" data-entry-id="77" data-entry-visibility="public" data-category-visibility="public">
+    <button type="button" class="btn_post btn_etc1"><span class="ico_postbtn ico_etc">글 요소</span></button>
+</div>
+    </div>
+        <div class="postbtn_ccl" data-ccl-type="3">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-fr/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-fr/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+                    </License>
+</rdf:RDF>
+-->
+</div><div class="another_category another_category_color_gray">
+<h4>'<a href="/category/CSS">CSS</a>' 카테고리의 다른 글</h4>
+<table>
+<tr>
+<th>
+<a href="/79?category=958538" >Tistory(#1) icon들을 CSS로 구현하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2022.03.05</td>
+</tr>
+<tr>
+<th>
+<a href="/77?category=958538"  class ="current" >Tistory(#1) 간단하게 로딩 창 구현하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2022.02.26</td>
+</tr>
+</table></div></div>
+								</div>
+								<div class="area_etc">
+									
+										<dl class="list_tag">
+											<dt class="tit_tag"><!--TAG-->Tag</dt>
+											<dd class="desc_tag"><a href="/tag/CSS"  rel="tag">CSS</a>,
+<a href="/tag/HTML"  rel="tag">HTML</a>,
+<a href="/tag/loading%20screen"  rel="tag">loading screen</a></dd>
+										</dl>
+									
+								</div>
+
+
+								<div class="area_reply ">
+
+									
+									<strong class="tit_reply"><!--댓글-->Comment
+										<!--
+										<button type="button" class="btn_reply" onclick="$.Area.Comment.changeStatus();">
+											<span id="commentCount77_0">0</span>
+											<span class="ico_skin ico_reply">댓글펼치기</span>
+										</button>
+										-->
+									</strong>
+									
+
+
+
+									<!-- 대체텍스트 댓글펼치기/댓글접기 변경 -->
+									<!--
+									<div id="entry77Comment">
+										<button type="button" class="btn_replymore">이전 댓글 보기</button>
+										
+
+										<form method="post" action="/comment/add/77" onsubmit="return false" style="margin: 0">
+											<fieldset class="fld_reply">
+												<legend class="screen_out">댓글쓰기 폼</legend>
+												<div class="reply_write ">
+													<label for="comment" class="lab_write"></label>
+													<textarea id="comment" name="comment" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="1"></textarea>
+												</div>
+												<div class="reply_writer">
+													
+
+													<div class="writer_btn">
+														<button type="submit" class="btn_enter" onclick="addComment(this, 77); return false;" tabindex="5">입력</button>
+													</div>
+												</div>
+											</fieldset>
+										</form>
+
+									</div><script type="text/javascript">loadedComments[77]=true;findFragmentAndHighlight(77)</script>
+									-->
+									
+									<div class="utterance-light">
+                    <script 
+                      src="https://utteranc.es/client.js"
+                      repo="sukvvon/blog-comments"
+                      issue-term="pathname"
+                      theme="github-light"
+                      crossorigin="anonymous"
+                      async>
+                    </script>
+                  </div>
+
+                  <div class="utterance-dark">
+                    <script 
+                      src="https://utteranc.es/client.js"
+                      repo="sukvvon/blog-comments"
+                      issue-term="pathname"
+                      theme="dark-blue"
+                      crossorigin="anonymous"
+                      async>
+                    </script>                
+                  </div>
+									
+								</div>
+							</div>
+						
+					</div>
+				
+
+				
+
+				
+
+
+				
+					<div class="area_paging area_paging_list">
+						<span class="inner_paging">
+							<a  href='/78' class="link_prev "><!--이전--><span class="prev"></span></a>
+							
+								<a  href='/79' class="link_page"><span >1</span></a>
+							
+								<a  href='/78' class="link_page"><span >2</span></a>
+							
+								<a  class="link_page"><span class="selected">3</span></a>
+							
+								<a  href='/76' class="link_page"><span >4</span></a>
+							
+								<a  href='/75' class="link_page"><span >5</span></a>
+							
+								<a  href='/74' class="link_page"><span >6</span></a>
+							
+								<a  href='/73' class="link_page"><span >7</span></a>
+							
+								<a  class="link_page"><span >&middot;&middot;&middot;</span></a>
+							
+								<a  href='/3' class="link_page"><span >32</span></a>
+							
+							<a  href='/76' class="link_next "><!--다음--><span class="next"></span></a>
+						</span>
+					</div>
+
+					<div class="area_paging area_paging_simple">
+						<div class="inner_paging">
+							<a  href='/78' class="link_prev ">
+								<span class=" ico_prev"><span class="prev"></span> 이전</span>
+							</a>
+
+							<a  href='/76' class="link_next ">
+								<span class=" ico_next">다음 <span class="next"></span></span>
+							</a>
+						</div>
+					</div>
+				
+
+
+				<div id="mEtc" class="wrap_etc">
+					<div class="inner_aside">
+						
+								<!-- 링크 -->
+								<div class="box_aside">
+									<strong><!-- 링크 -->Link</strong>
+									<ul class="list_board">
+										
+											<!--
+											<li><a href="https://github.com/sukvvon" class="link_board" target="_blank">.</a></li>
+											-->
+											<a class="utterance-dark" href="https://github.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/GitHub-Mark-Light-32px.png"/></a>
+												<a class="utterance-dark" href="https://twitter.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/Twitter social icons - circle - white.png"/></a>
+											<a class="utterance-dark" href="https://facebook.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/f_logo_RGB-White_1024.png"/></a>
+											<a class="utterance-dark" href="https://instagram.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/instagram_icon_logo_white.png"/></a>
+											<a class="utterance-light" href="https://github.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/GitHub-Mark-32px.png"/></a>
+											<a class="utterance-light" href="https://twitter.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/Twitter social icons - circle - blue.png"/></a>
+											<a class="utterance-light" href="https://facebook.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/f_logo_RGB-Blue_1024.png"/></a>
+											<a class="utterance-light" href="https://instagram.com/sukvvon"><img style="width: 24px;" src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/Instagram_Glyph_Gradient_RGB.png"/></a>
+										
+									</ul>
+								</div>
+							
+								<!-- 최근에 올라온 글 -->
+								<div class="box_aside">
+									<strong>최근에 올라온 글</strong>
+									<ul class="list_board">
+										
+											<li><a href="/79" class="link_board">Tistory(#1) icon들을 CSS로 구현하기</a></li>
+										
+
+											<li><a href="/78" class="link_board">[Git] Fork repository 최신화하기</a></li>
+										
+
+											<li><a href="/77" class="link_board">Tistory(#1) 간단하게 로딩 창 구현하기</a></li>
+										
+
+											<li><a href="/76" class="link_board">Tistory(#1) theme toggle 구현기</a></li>
+										
+
+											<li><a href="/75" class="link_board">[React] React에서 Firebase 연동 오류 해결하기(v8 -&gt; v9)</a></li>
+										
+
+											<li><a href="/74" class="link_board">Tistory 블로그에 github-markdown-css 적용하기</a></li>
+										
+
+											<li><a href="/73" class="link_board">블로그에 코드 하이라이트 적용하기(highlight.js)</a></li>
+										
+
+											<li><a href="/72" class="link_board">블로그에 GitHub 댓글 적용하기(utterances)</a></li>
+										
+									</ul>
+								</div>
+							
+								<!-- 태그 클라우드 -->
+								<div class="box_aside">
+									<strong><!--TAG-->Tag</strong>
+									<ul class="list_tag">
+										
+											<li><a href="/tag/CSS" class="link_tag cloud4">CSS</a></li>
+										
+											<li><a href="/tag/MacOS" class="link_tag cloud1">MacOS</a></li>
+										
+											<li><a href="/tag/loading%20screen" class="link_tag cloud5">loading screen</a></li>
+										
+											<li><a href="/tag/HTML" class="link_tag cloud4">HTML</a></li>
+										
+											<li><a href="/tag/github" class="link_tag cloud4">github</a></li>
+										
+											<li><a href="/tag/homebrew" class="link_tag cloud3">homebrew</a></li>
+										
+											<li><a href="/tag/github-markdown-css" class="link_tag cloud5">github-markdown-css</a></li>
+										
+											<li><a href="/tag/zsh" class="link_tag cloud4">zsh</a></li>
+										
+											<li><a href="/tag/git" class="link_tag cloud3">git</a></li>
+										
+											<li><a href="/tag/theme%20toggle" class="link_tag cloud5">theme toggle</a></li>
+										
+									</ul>
+									<a href="/tag" class="link_more">more</a>
+								</div>
+							
+								<!-- 방문자수 -->
+								<div class="box_aside lst">
+									<dl class="list_total">
+										<dt>Total</dt>
+										<dd>12,607</dd>
+									</dl>
+									<dl class="list_visitor">
+										<dt>Today</dt>
+										<dd>37</dd>
+									</dl>
+									<dl class="list_visitor">
+										<dt>Yesterday</dt>
+										<dd>105</dd>
+									</dl>
+								</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkFoot" role="contentinfo" class="area_foot">
+			<!-- 
+			Blog is powered by
+			<em class="emph_t">Tistory</em> / Designed by 
+			<em class="emph_t">Tistory</em>
+			-->
+			<em class="emph_t">&copy sukvvon</em>, Built with
+			<em class="emph_t">Tistory</em>
+		</div>
+	</div>
+
+
+<script src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/script.js"></script>
+<script>
+	(function($) {
+		$.Area.init();
+	})(jQuery);
+</script>
+<script src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/toc.js"></script>
+<script src="https://tistory3.daumcdn.net/tistory/4189167/skin/images/themeToggle.js"></script> 	
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+	if(!wcs_add) var wcs_add = {};
+	wcs_add["wa"] = encodeURI("sukvvon.tistory.com");
+	wcs_do();
+</script><script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+
+	<script>
+	    lightbox.option({
+			"fadeDuration": 200,
+		    "resizeDuration": 200,
+		    "wrapAround": false,
+			"albumLabel": "%1 / %2",
+			"fitImagesInViewport":true ,
+			"stopEvent": false
+	    })
+	</script>            <script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara.min.js"></script>
+            <script type="text/javascript">window.tiara = {"svcDomain":"user.tistory.com","section":"\uae00\ubdf0","trackPage":"\uae00\ubdf0_\ubcf4\uae30","page":"\uae00\ubdf0","key":"4189167-77","customProps":{"userId":"4538535","blogId":"4189167","role":"owner","filterTarget":false,"trackPage":"\uae00\ubdf0_\ubcf4\uae30","entryId":"77"},"entry":{"entryId":"77","categoryName":"CSS","categoryId":"958538","author":"4538535","authorId":"4538535","image":"4538535","plink":"\/77","tags":["CSS","HTML","loading screen"],"key":"4189167-77"},"sentryDsn":"https:\/\/a53520229cd744e798d42900d76b0e2a@aem-collector.daumkakao.io\/713","kakaoAppKey":"b8aef3eeb03fa312b81795386484f051","appUserId":"1522080257"};</script>
+            <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/tiara/tiara.min.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80" defer></script>
+                        <script type="text/javascript">
+                window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: 'tistory'}];
+            </script>
+            <script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async></script><script type="text/javascript">if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script><iframe style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="//sukvvon.tistory.com/api" id="editEntry"></iframe>            <div class="#menubar menu_toolbar  toolbar_rb">
+                                            <h2 class="screen_out">티스토리툴바</h2>
+                                            
+                                       </div>
+                                       <div class="#menubar menu_toolbar  toolbar_lb"><div class='btn_tool btn_tool_type1' id='menubar_wrapper'></div></div>
+                                       <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80/blogs/script/menubar.min.js?_version_=tistory-10efc69a0a6202ddf2e0c85281dd54ca712b7c80"></script>        <div class="layer_tooltip">
+            <div class="inner_layer_tooltip">
+                <p class="desc_g"></p>
+            </div>
+        </div>
+        <div id="tistoryEtcLayer" class="layer_post"></div><div id="tistorySnsLayer" class="layer_post"></div></body>
+
+</html>
