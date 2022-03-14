@@ -1,0 +1,27 @@
+.hidden {
+  animation: hide 0.1s linear forwards;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.shown {
+  animation: show 0.1s linear forwards;
+}
+
+@keyframes show {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
