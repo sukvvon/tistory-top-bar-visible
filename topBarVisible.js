@@ -24,3 +24,6 @@ window.addEventListener("scroll", () => {
     beforeScrollY.push(window.scrollY);
   }
 });
+
+dkHead.classList.add(SHOWN_CLASSNAME);
+areaMenu.classList.add(SHOWN_CLASSNAME);
